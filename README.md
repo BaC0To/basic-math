@@ -1,1 +1,1 @@
-"# basic-math" 
+a class BasicMath will be created that shoud support + - * / functions
