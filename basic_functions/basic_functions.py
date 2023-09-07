@@ -1,30 +1,118 @@
 class BasicMath:
-    """Basic math class with functions + - * / """
-    def __init__(self,result=any):
-        self.result=result
+    """
+    A class to represent a BasicMath object.
+
+    ...
+
+    Attributes
+    ----------
+    a : int/float
+        first nnumber
+    b : int/float
+        second number
+    
+    Methods
+    -------
+    add():
+        Summation of two numbers.
+    subtract():
+        Subtraction of two numbers.
+    multiply():
+        Multiplication of two numbers.
+    divide():
+        Division of two numbers.
+
+    """
 
 
-    def add(self,a,b):
-        """function that adds 2 numbers and result is according to input type"""
-        result=None
-        if isinstance(a and b, int): # check for both inputs==integers
-            print(f"number {a} and {b} are int")
-            result=int(a+b)
+    def __init__(self,a,b):
+        """
+        Constructs all the necessary attributes for the BasicMath object.
 
-        if (isinstance(a, float) or isinstance(b, float)):# check if any input is float
-            print("One of the input numbers is float")
-            result=float(a+b)
+        Parameters
+        ----------
+            a : int/float
+                first number
+            b : int/float
+                second number
+        """
 
-        if (isinstance(a, str) or isinstance(b, str)):# check if any input is string
-            print(f"number {a} or {b} is a string")
-            result= None
+        self.a=a
+        self.b=b      
+    
+    def add(self):
+        """Return the sum of two numbers.
+
+        Args:
+            self (int/float): two numbers in integer or float format.
+
+        Returns:
+            int/float: sum of two numbers in int or float format.
+        """
 
 
-        return result
+        if isinstance(self.a and self.b, int): # check for both inputs==integers
+            return int(self.a+self.b)
+    
+        if (isinstance(self.a, float) or isinstance(self.b, float)):# check if any input is float
+            return float(self.a+self.b)
 
 
-object1=BasicMath()
-function_type=input("What kind of basic math over the following 2 numbers you'll want? [A]dd, [S]ubtract, [Divide] or [Multiply] -> ?").upper()
-if function_type=="A":
-    my_result=object1.add(2,3.1)
-    print(f"Result is: {my_result} and is of type: {type(my_result)}")
+    def subtract(self):
+        """Return the subtraction of two numbers.
+
+        Args:
+            self (int/float): two numbers in integer or float format.
+
+        Returns:
+            int/float: subtraction of two numbers in int or float format.
+        """
+
+
+        if isinstance(self.a and self.b, int): # check for both inputs==integers
+                return int(self.a-self.b)
+        
+        if (isinstance(self.a, float) or isinstance(self.b, float)):# check if any input is float
+                return float(self.a-self.b)
+
+
+    def multiply(self):
+        """Return the multiplication of two numbers.
+
+        Args:
+            self (int/float): two numbers in integer or float format.
+
+        Returns:
+            int/float: multiplication of two numbers in int or float format.
+        """ 
+
+
+        if isinstance(self.a and self.b, int): # check for both inputs==integers
+            return int(self.a*self.b)
+        
+        if (isinstance(self.a, float) or isinstance(self.b, float)):# check if any input is float
+            return float(self.a*self.b)
+            
+    def divide(self):
+        """Return the division of two numbers.
+
+        Args:
+            self (int/float): two numbers in integer or float format.
+
+        Returns:
+            int/float: division of two numbers in int or float format.
+        """
+
+
+        try:
+            if isinstance(self.a and self.b, int): # check for both inputs==integers
+                return int(self.a/self.b)
+            
+            if (isinstance(self.a, float) or isinstance(self.b, float)):# check if any input is float
+                return float(self.a/self.b)
+        except ZeroDivisionError:
+            print("illigal division by zero")
+
+            
+x=BasicMath(4,4.2)
+print(f"Result is: {x.multiply()}")
