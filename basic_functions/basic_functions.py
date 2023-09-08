@@ -1,3 +1,5 @@
+import decimal
+
 class BasicMath:
     """
     A class to represent a BasicMath object.
@@ -38,8 +40,12 @@ class BasicMath:
         """
 
         self.a=a
-        self.b=b      
-    
+        self.b=b
+        if isinstance(self.a,str) or isinstance(self.b,str):
+            raise TypeError(f"Stage.__init__ called with a non-numeric value")
+                       
+
+
     def add(self):
         """Return the sum of two numbers.
 
@@ -49,15 +55,9 @@ class BasicMath:
         Returns:
             int/float: sum of two numbers in int or float format.
         """
-
-
-        if isinstance(self.a and self.b, int): # check for both inputs==integers
-            return int(self.a+self.b)
+        
+        return self.a+self.b
     
-        if (isinstance(self.a, float) or isinstance(self.b, float)):# check if any input is float
-            return float(self.a+self.b)
-
-
     def subtract(self):
         """Return the subtraction of two numbers.
 
@@ -65,16 +65,11 @@ class BasicMath:
             self (int/float): two numbers in integer or float format.
 
         Returns:
-            int/float: subtraction of two numbers in int or float format.
+            int/float: sum of two numbers in int or float format.
         """
-
-
-        if isinstance(self.a and self.b, int): # check for both inputs==integers
-                return int(self.a-self.b)
         
-        if (isinstance(self.a, float) or isinstance(self.b, float)):# check if any input is float
-                return float(self.a-self.b)
-
+        return self.a-self.b
+    
 
     def multiply(self):
         """Return the multiplication of two numbers.
@@ -84,17 +79,13 @@ class BasicMath:
 
         Returns:
             int/float: multiplication of two numbers in int or float format.
-        """ 
-
-
-        if isinstance(self.a and self.b, int): # check for both inputs==integers
-            return int(self.a*self.b)
+        """
         
-        if (isinstance(self.a, float) or isinstance(self.b, float)):# check if any input is float
-            return float(self.a*self.b)
-            
+        return self.a*self.b
+
+
     def divide(self):
-        """Return the division of two numbers.
+        """Return the multiplication of two numbers.
 
         Args:
             self (int/float): two numbers in integer or float format.
@@ -102,17 +93,29 @@ class BasicMath:
         Returns:
             int/float: division of two numbers in int or float format.
         """
+        
+        return self.a/self.b
+    
 
+num1=4.233
+num2=1.23
 
-        try:
-            if isinstance(self.a and self.b, int): # check for both inputs==integers
-                return int(self.a/self.b)
-            
-            if (isinstance(self.a, float) or isinstance(self.b, float)):# check if any input is float
-                return float(self.a/self.b)
-        except ZeroDivisionError:
-            print("illigal division by zero")
+final_precision=0
+num1_precision=0
+num2_precision=0
 
-            
-x=BasicMath(4,4.2)
-print(f"Result is: {x.multiply()}")
+if "." in str(num1):
+    num1_precision=(len(str(num1).split(".")[-1]))
+    
+if "." in str(num2):
+    num2_precision=(len(str(num2).split(".")[-1]))
+
+if num2_precision>=num1_precision:
+    final_precision=num2_precision
+
+if num2_precision<num1_precision:
+    final_precision=num1_precision
+
+x=BasicMath(num1,num2)
+
+print(f"Result is: {x.divide():.{final_precision}f}")
