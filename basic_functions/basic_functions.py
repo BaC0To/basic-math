@@ -118,4 +118,6 @@ if num2_precision<num1_precision:
 
 x=BasicMath(num1,num2)
 
+
+#print(f"Result is: {x.divide()}")
 print(f"Result is: {x.divide():.{final_precision}f}")
