@@ -36,3 +36,4 @@ class BasicMath:
         :returns: the result of division
         """
         return number1 / number2
+    
