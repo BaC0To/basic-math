@@ -3,7 +3,7 @@ class BasicMath:
 
     @staticmethod            
     def add(number1, number2):
-        """Return the sum of two numbers.
+        """Sum function of two numbers.
 
         :params the numbers to be added
         :returns: the result of summation
@@ -12,7 +12,7 @@ class BasicMath:
     
     @staticmethod 
     def subtract(number1, number2):
-        """Return the subtraction of two numbers.
+        """Subtract function of two numbers.
 
         :params the numbers to be subtracted
         :returns: the result of subtraction
@@ -21,7 +21,7 @@ class BasicMath:
     
     @staticmethod 
     def multiply(number1, number2):
-        """Return the multiplication of two numbers.
+        """Multiply function of two numbers.
 
         :params the numbers to be multiplied
         :returns: the result of multiplication
@@ -30,10 +30,11 @@ class BasicMath:
 
     @staticmethod 
     def divide(number1, number2):
-        """Return the deivision of two numbers.
+        """Divide function of two numbers.
 
         :params the numbers to be multiplied
         :returns: the result of division
         """
+        if number2 == 0:
+            raise ValueError("Can't divide by \"0\"...")
         return number1 / number2
-    
