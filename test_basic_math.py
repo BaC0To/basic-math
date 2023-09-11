@@ -1,6 +1,5 @@
 import unittest
-#from basic_math_functions import BasicMath
-from basic_math_functions import *
+from basic_math_functions import BasicMath
 
 
 class TestBasicMath(unittest.TestCase):
@@ -18,6 +17,7 @@ class TestBasicMath(unittest.TestCase):
         #print("test_add_two_positive_numbers")
         expected = 3.26
         result = self.basic_math.add([3.14, 0.12])
+        #self.assertEqual(result, expected)
         self.assertAlmostEqual(result, expected)
 
     def test_add_two_negative_numbers(self):
